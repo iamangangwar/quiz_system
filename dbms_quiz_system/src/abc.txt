@@ -1,0 +1,20 @@
+Statement statement;
+                statement = connection.createStatement();
+                ResultSet resultSet;
+                resultSet = statement.executeQuery(
+                    "select * from student_name");
+                
+                String first;
+                String middle;
+                String last;
+
+                while (resultSet.next()) {
+                    first = resultSet.getString("FirstName");
+                    middle = resultSet.getString("MiddleName");
+                    last = resultSet.getString("LastName");
+                    System.out.println("First : " + first
+                                        + " Middle : " + middle
+                                        + " Last : " + last + "\n");
+                }
+                resultSet.close();
+                statement.close();
