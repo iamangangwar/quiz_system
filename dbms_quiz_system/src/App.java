@@ -11,7 +11,7 @@ public class App {
             Class.forName("com.mysql.cj.jdbc.Driver");
                         connection = (Connection) DriverManager.getConnection(
                             "jdbc:mysql://localhost:3306/quiz_system",
-                            "root", "");
+                            "root", "aman");
 
             
             while(true) {
@@ -200,7 +200,6 @@ public class App {
                                         max + "','Academic');";
 
                         statement.execute(query1);
-                        System.out.println(query);
                         statement.execute(query);
 
                     }
@@ -286,6 +285,7 @@ public class App {
                         }
                     }
                 }
+                Process proc = Runtime.getRuntime().exec("mysqldump -uroot -p > quiz_sys.sql");
                 break;
             }
             connection.close();
